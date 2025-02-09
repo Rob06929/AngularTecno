@@ -1,0 +1,44 @@
+<div class="max-w-4xl mx-auto p-8 bg-gray-800 rounded-lg shadow-xl">
+  <h2 class="text-3xl font-bold text-center text-white mb-8">Asignar Producto a Almacén</h2>
+
+  <form [formGroup]="asignarForm" (ngSubmit)="onSubmit()" class="space-y-6">
+    <!-- Producto -->
+    <div class="mb-6">
+      <label for="productoId" class="block text-sm font-medium text-gray-300">Seleccionar Producto</label>
+      <select id="productoId" formControlName="productoId"
+        class="mt-1 block w-full px-4 py-2 border border-gray-600 rounded-md shadow-sm bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        <option value="" disabled selected>Seleccione un producto</option>
+        <option *ngFor="let producto of productos" [value]="producto.id">{{ producto.nombre }}</option>
+      </select>
+      <div *ngIf="asignarForm.controls['productoId'].invalid && asignarForm.controls['productoId'].touched"
+        class="text-red-500 text-sm mt-1">Este campo es obligatorio.</div>
+    </div>
+
+    <!-- Almacén -->
+    <div class="mb-6">
+      <label for="almacenId" class="block text-sm font-medium text-gray-300">Seleccionar Almacén</label>
+      <select id="almacenId" formControlName="almacenId"
+        class="mt-1 block w-full px-4 py-2 border border-gray-600 rounded-md shadow-sm bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        <option value="" disabled selected>Seleccione un almacén</option>
+        <option *ngFor="let almacen of almacenes" [value]="almacen.id">{{ almacen.nombre }} - {{ almacen.locacion }}</option>
+      </select>
+      <div *ngIf="asignarForm.controls['almacenId'].invalid && asignarForm.controls['almacenId'].touched"
+        class="text-red-500 text-sm mt-1">Este campo es obligatorio.</div>
+    </div>
+
+    <!-- Stock -->
+    <div class="mb-6">
+      <label for="stock" class="block text-sm font-medium text-gray-300">Cantidad de Stock</label>
+      <input id="stock" formControlName="stock" type="number" min="1"
+        class="mt-1 block w-full px-4 py-2 border border-gray-600 rounded-md shadow-sm bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+      <div *ngIf="asignarForm.controls['stock'].invalid && asignarForm.controls['stock'].touched"
+        class="text-red-500 text-sm mt-1">Por favor ingrese una cantidad válida de stock.</div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="asignarForm.invalid"
+      class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-3 px-4 rounded-lg hover:bg-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300 ease-in-out">
+      Asignar Producto
+    </button>
+  </form>
+</div>

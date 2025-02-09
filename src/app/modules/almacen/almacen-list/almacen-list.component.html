@@ -1,0 +1,33 @@
+<div class="p-6 bg-gray-900 text-white rounded-lg shadow-lg">
+  <h2 class="text-2xl font-bold mb-4 text-center text-gradient">Lista de Almacenes</h2>
+  <div class="overflow-x-auto">
+    <table class="min-w-full table-auto text-sm text-center bg-gray-800 rounded-lg shadow-lg border-separate border-spacing-1 border border-slate-500">
+      <thead>
+        <tr class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white">
+          <th class="px-2 py-1 text-left rounded-lg ">ID</th>
+          <th class="px-2 py-1 text-left rounded-lg ">Nombre</th>
+          <th class="px-2 py-1 text-left rounded-lg ">Localisacion</th>
+          <th class="px-2 py-1 text-left rounded-lg ">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let almacen of almacenes"
+          class="hover:bg-gray-700 transition-colors border-b border-gray-700"
+        >
+          <td class="px-2 py-1 rounded-l-lg">{{ almacen.id }}</td>
+          <td class="px-2 py-1">{{ almacen.nombre}}</td>
+          <td class="px-2 py-1">{{ almacen.locacion }}</td>
+          <td class="rounded-r-lg">
+            <button *ngIf="almacen.id !== undefined" (click)="deleteAlmacen(almacen.id)" class="bg-red-500 text-white p-1 rounded">
+              X
+            </button>
+            <button *ngIf="almacen.id !== undefined" (click)="deleteAlmacen(almacen.id)" class="bg-blue-400 text-white p-1 rounded ml-1">
+              add
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
