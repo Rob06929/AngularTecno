@@ -4,12 +4,14 @@ import { CategoryService } from '../service/category.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
+import { PageVisitComponent } from '../../page-visit/page-visit.component';
 
 @Component({
   selector: 'app-category-add',
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PageVisitComponent
   ],
   templateUrl: './category-add.component.html',
   styleUrl: './category-add.component.css',

@@ -4,13 +4,15 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { RolService } from '../rol.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { PageVisitComponent } from '../../page-visit/page-visit.component';
 
 @Component({
   selector: 'app-rol-add',
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    PageVisitComponent
   ],
   templateUrl: './rol-add.component.html',
   styleUrl: './rol-add.component.css',

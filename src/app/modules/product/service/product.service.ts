@@ -24,13 +24,15 @@ export class ProductService {
     public getProductAll(): Observable<Product[]> {
       const token = sessionStorage.getItem('token');  // Obtener el token del localStorage
       console.log('Token usado:', token); // Verificar el token
-      if (token) {
-        return this.http.get<Product[]>(this.apiUrl, httpOptions(token)).pipe(
-          catchError(this.handleError('getProductAll', []))
-        );
-      } else {
-        return of([]);  // Si no hay token, devuelve un array vacío
-      }
+      return this.http.get<any>('../../../../assets/data/productos.json').
+        pipe(catchError(this.handleError('getProductAll', [])));
+      //if (token) {
+      //  return this.http.get<Product[]>(this.apiUrl, httpOptions(token)).pipe(
+      //    catchError(this.handleError('getProductAll', []))
+      //  );
+      //} else {
+      //  return of([]);  // Si no hay token, devuelve un array vacío
+      //}
     }
 
     private handleError<T>(operation = 'operation', result?: T) {

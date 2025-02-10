@@ -1,0 +1,40 @@
+<div class="container mt-4">
+    <h2 class="text-2xl font-bold mb-4 text-center text-gradient">Crear Ajuste</h2>
+    <form [formGroup]="adjustmentForm" (ngSubmit)="createAdjustment()" class="space-y-4">
+        <div class="mb-3">
+            <label for="tipo" class="block text-sm font-medium">Tipo</label>
+            <select id="tipo"
+                class="w-full px-4 py-2 mt-1 bg-gray-800 text-white rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                formControlName="tipo">
+                <option value="" disabled selected>Seleccionar Tipo</option>
+                <option *ngFor="let cat of typesAdjustment" [value]="cat.nombre">{{ cat.nombre }}</option>
+            </select>
+            <div *ngIf="adjustmentForm.get('tipo')?.invalid && adjustmentForm.get('tipo')?.touched"
+                class="text-danger">
+                Selecciona una Tipo.
+            </div>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="fecha" class="block text-sm font-medium">Fecha</label>
+            <input type="text" id="fecha"
+                class="w-full px-4 py-2 mt-1 bg-gray-800 text-white rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                formControlName="fecha" placeholder="fecha del Ajuste" />
+            <div *ngIf="adjustmentForm.get('fecha')?.invalid && adjustmentForm.get('fecha')?.touched"
+                class="text-danger">
+                La localisacion es requerida (máximo 30 caracteres).
+            </div>
+        </div>
+
+
+        <button type="submit"
+            class="w-full px-4 py-2 bg-indigo-500 text-white font-bold rounded-lg hover:bg-indigo-600 transition"
+            [disabled]="adjustmentForm.invalid">
+            Agregar Ajuste
+        </button>
+    </form>
+</div>
+
+<br>
+<app-page-visit [page]="'adjustment-add'"></app-page-visit>

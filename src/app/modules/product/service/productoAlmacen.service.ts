@@ -24,13 +24,15 @@ export class ProductoAlmacenService {
       public getProductoAlmacenAll(): Observable<ProductoAlmacen[]> {
         const token = sessionStorage.getItem('token');  // Obtener el token del localStorage
         console.log('Token usado:', token); // Verificar el token
-        if (token) {
-          return this.http.get<ProductoAlmacen[]>(this.apiUrl, httpOptions(token)).pipe(
-            catchError(this.handleError('getProductoAlmacenAll', []))
-          );
-        } else {
-          return of([]);  // Si no hay token, devuelve un array vacío
-        }
+        return this.http.get<any>('../../../../assets/data/almacenProductos.json').
+        pipe(catchError(this.handleError('getProductoAlmacenAll', [])));
+        //if (token) {
+        //  return this.http.get<ProductoAlmacen[]>(this.apiUrl, httpOptions(token)).pipe(
+        //    catchError(this.handleError('getProductoAlmacenAll', []))
+        //  );
+        //} else {
+        //  return of([]);  // Si no hay token, devuelve un array vacío
+        //}
       }
 
       private handleError<T>(operation = 'operation', result?: T) {
@@ -59,15 +61,16 @@ export class ProductoAlmacenService {
         }
       }
 
-      public deleteProduct(product_id: number):Observable<any> {
-          const token = sessionStorage.getItem('token');  // Obtener el token del localStorage
+      deleteProductoAlmacen(id: number): Observable<any> {
+          // return this.http.delete<void>(`${this.apiUrl}/${id}`);
+          const token = sessionStorage.getItem('token'); // Obtener el token del localStorage
           if (token) {
-            return this.http.delete(`${this.apiUrl}/${product_id}`, httpOptions(token)).pipe(
-              catchError(this.handleError('deleteProduct'))
-            );
+            return this.http
+              .delete(`${this.apiUrl}/${id}`, httpOptions(token))
+              .pipe(catchError(this.handleError('deleteProductAlmacen')));
           } else {
-            return of(null);  // Si no hay token, no hace nada
+            return of(null); // Si no hay token, no hace nada
           }
-     }
+        }
 
 }

@@ -13,11 +13,8 @@
   <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
     <ng-container *ngFor="let permiso of permisos">
       <label class="flex items-center space-x-2 bg-gray-700 p-3 rounded-lg shadow-md hover:bg-gray-600 transition">
-        <input
-          type="checkbox"
-          class="form-checkbox h-5 w-5 text-blue-500 focus:ring focus:ring-blue-300"
-          [checked]="isSelected(permiso.iD_Permiso)"
-          (change)="addPermission(permiso, $event)">
+        <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-500 focus:ring focus:ring-blue-300"
+          [checked]="isSelected(permiso.iD_Permiso)" (change)="addPermission(permiso, $event)">
         <span class="text-white">{{ permiso.nombre_Permiso }}</span>
       </label>
     </ng-container>
@@ -29,9 +26,7 @@
 </ng-template>
 
 <div class="flex justify-center mt-6">
-  <button
-    type="button"
-    (click)="save()"
+  <button type="button" (click)="save()"
     class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg shadow-md transition disabled:bg-gray-600 disabled:cursor-not-allowed"
     [disabled]="!selectedPermisos || selectedPermisos.length === 0">
     Guardar

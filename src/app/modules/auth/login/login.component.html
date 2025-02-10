@@ -15,9 +15,9 @@
       </h2>
       <p class="text-center text-gray-400 text-sm mb-8">
         Introduce tus credenciales para continuar
-      </p>
+      </p> 
 
-      <form (ngSubmit)="login()" #loginForm="ngForm" class="space-y-6">
+      <form (ngSubmit)="login()" [formGroup]="userForm" class="space-y-6">
         <!-- Campo para el nombre de usuario -->
         <div>
           <label for="userName" class="block text-sm font-medium text-gray-300 mb-2">
@@ -28,17 +28,13 @@
             id="userName"
             name="userName"
             class="w-full p-3 bg-gray-800 text-gray-100 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-            [(ngModel)]="user.username"
             [required]="true"
-            #userNameField="ngModel"
+            formControlName="username"
           />
-          @if (userNameField.invalid && userNameField.touched) {
-            <div class="text-sm text-red-500 mt-2">
-              @if (userNameField.errors?.['required']) {
-                <small>El nombre de usuario es obligatorio.</small>
-              }
-            </div>
-          }
+          <div *ngIf="userForm.get('username')?.invalid && userForm.get('username')?.touched"
+          class="text-red-400 text-sm mt-1">
+          El nombre es requerido.
+        </div>
         </div>
 
         <!-- Campo para la contraseña -->
@@ -51,18 +47,26 @@
             id="password"
             name="password"
             class="w-full p-3 bg-gray-800 text-gray-100 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-            [(ngModel)]="user.password"
             [required]="true"
             autocomplete="current-password"
-            #passwordField="ngModel"
+            formControlName="password"
           />
-          @if (passwordField.invalid && passwordField.touched) {
-            <div class="text-sm text-red-500 mt-2">
-              @if (passwordField.errors?.['required']) {
-                <small>La contraseña es obligatoria.</small>
-              }
-            </div>
-          }
+          <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched"
+          class="text-red-400 text-sm mt-1">
+          <div *ngIf="userForm.get('password')?.hasError('required')">La contraseña es obligatoria.</div>
+          <div *ngIf="userForm.get('password')?.hasError('minlength')">Debe tener al menos 8 caracteres.</div>
+          <div *ngIf="userForm.get('password')?.hasError('maxlength')">No puede tener más de 30 caracteres.</div>
+          <div
+            *ngIf="userForm.get('password')?.hasError('pattern') && !userForm.get('password')?.hasError('minlength')">
+            Debe incluir al menos:
+            <ul class="list-disc ml-5">
+              <li *ngIf="isUpperCaseMissing()">Una letra mayúscula</li>
+              <li *ngIf="isLowerCaseMissing()">Una letra minúscula</li>
+              <li *ngIf="isNumberMissing()">Un número</li>
+              <li *ngIf="isSpecialCharMissing()">Un carácter especial ($, !, %, *, ?, &)</li>
+            </ul>
+          </div>
+        </div>
         </div>
 
         <!-- Botón de inicio de sesión -->
@@ -70,7 +74,7 @@
           <button
             type="submit"
             class="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-            [disabled]="loginForm.invalid"
+            [disabled]="userForm.invalid"
           >
             Iniciar sesión
           </button>

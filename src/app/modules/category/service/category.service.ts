@@ -25,13 +25,15 @@ export class CategoryService {
   public getCategoryAll(): Observable<Category[]> {
       const token = sessionStorage.getItem('token');  // Obtener el token del localStorage
       console.log('Token usado:', token); // Verificar el token
-      if (token) {
-        return this.http.get<Category[]>(this.url, httpOptions(token)).pipe(
-          catchError(this.handleError('getCategoryAll', []))
-        );
-      } else {
-        return of([]);  // Si no hay token, devuelve un array vacío
-      }
+      return this.http.get<any>('../../../../assets/data/categorias.json').
+        pipe(catchError(this.handleError('getCategoryAll', [])));
+      //if (token) {
+      //  return this.http.get<Category[]>(this.url, httpOptions(token)).pipe(
+      //    catchError(this.handleError('getCategoryAll', []))
+      //  );
+      //} else {
+      //  return of([]);  // Si no hay token, devuelve un array vacío
+      //}
   }
 
 

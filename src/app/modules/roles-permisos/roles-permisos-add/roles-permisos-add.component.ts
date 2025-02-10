@@ -11,10 +11,11 @@ import { RolService } from '../rol.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
+import { PageVisitComponent } from '../../page-visit/page-visit.component';
 
 @Component({
   selector: 'app-roles-permisos-add',
-  imports: [CommonModule],
+  imports: [CommonModule, PageVisitComponent],
   templateUrl: './roles-permisos-add.component.html',
   styleUrl: './roles-permisos-add.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

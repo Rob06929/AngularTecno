@@ -3,11 +3,13 @@ import { Category } from '../../../interfaces/category.interface';
 import { CommonModule } from '@angular/common';
 import { CategoryService } from '../service/category.service';
 import { Router } from '@angular/router';
+import { PageVisitComponent } from '../../page-visit/page-visit.component';
 
 @Component({
   selector: 'app-category-list',
   imports: [
-    CommonModule
+    CommonModule,
+    PageVisitComponent
   ],
   templateUrl: './category-list.component.html',
   styleUrl: './category-list.component.css',

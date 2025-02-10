@@ -7,13 +7,15 @@ import { ProductService } from '../product/service/product.service';
 import { AlmacenService } from '../almacen/service/almacen.service';
 import { Product } from '../../interfaces/poduct.interface';
 import { Almacen } from '../../interfaces/almacen.interface';
+import { PageVisitComponent } from '../page-visit/page-visit.component';
 
 @Component({
   selector: 'app-asignar-producto',
   imports: [
     CommonModule,
     // FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PageVisitComponent
   ],
   templateUrl: './AsignarProducto.component.html',
   styleUrl: './AsignarProducto.component.css',

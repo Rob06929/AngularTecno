@@ -1,0 +1,42 @@
+[
+    {
+      "idProducto": 1,
+      "id": 101,
+      "descripcion": "Producto de ejemplo 1",
+      "nombre": "Producto A",
+      "precio": 100.5,
+      "stock": 50,
+      "idCategoria": 1,
+      "categoria": {
+        "idCategoria": 1,
+        "nombre": "Electrónica"
+      }
+    },
+    {
+      "idProducto": 2,
+      "id": 102,
+      "descripcion": "Producto de ejemplo 2",
+      "nombre": "Producto B",
+      "precio": 200.75,
+      "stock": 30,
+      "idCategoria": 2,
+      "categoria": {
+        "idCategoria": 2,
+        "nombre": "Hogar"
+      }
+    },
+    {
+      "idProducto": 3,
+      "id": 103,
+      "descripcion": "Producto de ejemplo 3",
+      "nombre": "Producto C",
+      "precio": 50.25,
+      "stock": 100,
+      "idCategoria": 3,
+      "categoria": {
+        "idCategoria": 3,
+        "nombre": "Deportes"
+      }
+    }
+  ]
+  

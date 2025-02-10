@@ -8,11 +8,14 @@ import {
 import { Almacen } from '../../../interfaces/almacen.interface';
 import { AlmacenService } from '../service/almacen.service';
 import Swal from 'sweetalert2';
+import { HttpClient } from '@angular/common/http';
+import { PageVisitComponent } from '../../page-visit/page-visit.component';
 
 @Component({
   selector: 'app-almacen-list',
   imports: [
-    CommonModule
+    CommonModule,
+    PageVisitComponent
   ],
   templateUrl: './almacen-list.component.html',
   styleUrl: './almacen-list.component.css',
@@ -23,7 +26,8 @@ export class AlmacenListComponent {
 
   constructor(
     private almacenService: AlmacenService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private http: HttpClient
   ) {}
 
   deleteAlmacen(almacen_id: number): void {
@@ -52,6 +56,8 @@ export class AlmacenListComponent {
       },
     });
   }
+
+  
 
   reloadAlmacenes(): void {
     this.almacenService.getAlmacenes().subscribe({

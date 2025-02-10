@@ -1,5 +1,6 @@
 <div class="flex items-center justify-center min-h-full pt-20 pb-10 bg-gray-950 rounded-lg">
-  <div class="w-full max-w-md p-6 rounded-2xl bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white shadow-xl">
+  <div
+    class="w-full max-w-md p-6 rounded-2xl bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white shadow-xl">
     <h2 class="text-3xl font-bold mb-6 text-center text-gradient">
       Crear Usuario
     </h2>
@@ -9,14 +10,11 @@
       <!-- Nombre -->
       <div class="mb-5">
         <label for="username" class="block text-sm font-medium text-gray-300">Nombre</label>
-        <input
-          type="text"
-          id="username"
+        <input type="text" id="username"
           class="w-full px-4 py-3 bg-gray-800 bg-opacity-50 border border-gray-700 rounded-lg shadow-md focus:ring-2 focus:ring-cyan-500 focus:outline-none text-gray-200 placeholder-gray-400 transition-all duration-300"
-          formControlName="username"
-          placeholder="Nombre del usuario"
-        />
-        <div *ngIf="userForm.get('username')?.invalid && userForm.get('username')?.touched" class="text-red-400 text-sm mt-1">
+          formControlName="username" placeholder="Nombre del usuario" />
+        <div *ngIf="userForm.get('username')?.invalid && userForm.get('username')?.touched"
+          class="text-red-400 text-sm mt-1">
           El nombre es requerido (máximo 30 caracteres).
         </div>
       </div>
@@ -24,14 +22,11 @@
       <!-- Apellidos -->
       <div class="mb-5">
         <label for="fullname" class="block text-sm font-medium text-gray-300">Apellidos</label>
-        <input
-          type="text"
-          id="fullname"
+        <input type="text" id="fullname"
           class="w-full px-4 py-3 bg-gray-800 bg-opacity-50 border border-gray-700 rounded-lg shadow-md focus:ring-2 focus:ring-cyan-500 focus:outline-none text-gray-200 placeholder-gray-400 transition-all duration-300"
-          formControlName="fullname"
-          placeholder="Apellidos del usuario"
-        />
-        <div *ngIf="userForm.get('fullname')?.invalid && userForm.get('fullname')?.touched" class="text-red-400 text-sm mt-1">
+          formControlName="fullname" placeholder="Apellidos del usuario" />
+        <div *ngIf="userForm.get('fullname')?.invalid && userForm.get('fullname')?.touched"
+          class="text-red-400 text-sm mt-1">
           El apellido es requerido (máximo 30 caracteres).
         </div>
       </div>
@@ -39,36 +34,44 @@
       <!-- Password -->
       <div class="mb-5">
         <label for="password" class="block text-sm font-medium text-gray-300">Contraseña</label>
-        <input
-          type="password"
-          id="password"
+        <input type="password" id="password"
           class="w-full px-4 py-3 bg-gray-800 bg-opacity-50 border border-gray-700 rounded-lg shadow-md focus:ring-2 focus:ring-cyan-500 focus:outline-none text-gray-200 placeholder-gray-400 transition-all duration-300"
-          formControlName="password"
-          placeholder="Contraseña"
-        />
-        <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched" class="text-red-400 text-sm mt-1">
-          La contraseña es requerida (máximo 30 caracteres).
+          formControlName="password" placeholder="Contraseña" />
+        <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched"
+          class="text-red-400 text-sm mt-1">
+          <div *ngIf="userForm.get('password')?.hasError('required')">La contraseña es obligatoria.</div>
+          <div *ngIf="userForm.get('password')?.hasError('minlength')">Debe tener al menos 8 caracteres.</div>
+          <div *ngIf="userForm.get('password')?.hasError('maxlength')">No puede tener más de 30 caracteres.</div>
+          <div
+            *ngIf="userForm.get('password')?.hasError('pattern') && !userForm.get('password')?.hasError('minlength')">
+            Debe incluir al menos:
+            <ul class="list-disc ml-5">
+              <li *ngIf="isUpperCaseMissing()">Una letra mayúscula</li>
+              <li *ngIf="isLowerCaseMissing()">Una letra minúscula</li>
+              <li *ngIf="isNumberMissing()">Un número</li>
+              <li *ngIf="isSpecialCharMissing()">Un carácter especial ($, !, %, *, ?, &)</li>
+            </ul>
+          </div>
         </div>
+
+
       </div>
 
       <!-- Botón para Crear Usuario -->
-      <button
-        type="submit"
+      <button type="submit"
         class="w-full py-3 px-6 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-lg shadow-lg transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-opacity-50 transition-all duration-300"
-        [disabled]="userForm.invalid"
-      >
+        [disabled]="userForm.invalid">
         Agregar Usuario
       </button>
       <!-- Botón Volver -->
-      <button
-      class="w-full py-2 px-4 bg-gradient-to-r from-gray-700 to-gray-900 text-white font-bold rounded-lg shadow-lg
+      <button class="w-full py-2 px-4 bg-gradient-to-r from-gray-700 to-gray-900 text-white font-bold rounded-lg shadow-lg
              hover:from-gray-600 hover:to-gray-800 transform hover:scale-105 focus:outline-none focus:ring-2
-             focus:ring-gray-500 focus:ring-opacity-50 transition-all duration-300"
-      type="button"
-      (click)="goBack()"
-    >
-      ⬅ Volver
-    </button>
+             focus:ring-gray-500 focus:ring-opacity-50 transition-all duration-300" type="button" (click)="goBack()">
+        ⬅ Volver
+      </button>
     </form>
+
+    <br>
+    <app-page-visit [page]="'user-create'"></app-page-visit>
   </div>
 </div>

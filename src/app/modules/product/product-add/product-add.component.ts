@@ -5,13 +5,16 @@ import { ProductService } from '../service/product.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
+import { PageVisitComponent } from '../../page-visit/page-visit.component';
+import { CategoryService } from '../../category/service/category.service';
 
 @Component({
   selector: 'app-product-add',
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    PageVisitComponent
   ],
   template: `
 
@@ -68,20 +71,28 @@ import { CommonModule } from '@angular/common';
           Agregar Producto
           </button>
         </form>
+
       </div>
+      
+      <br>
+  <app-page-visit [page]="'product-add'"></app-page-visit>
 `,
   styleUrl: './product-add.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductAddComponent {
-  @Input() category:Category[]=[];
+  category:Category[]=[];
   productForm!: FormGroup ;
 
   constructor(
     private fb: FormBuilder,
     private productService:ProductService,
-    private router:Router
-  ){}
+    private router:Router,
+    private categoryService:CategoryService,
+  ){
+    this.loadCategories();
+  }
+
   ngOnInit(): void {
     this.productForm = this.fb.group({
       nombre: ['', [Validators.required, Validators.maxLength(30)]],
@@ -126,5 +137,15 @@ export class ProductAddComponent {
     } else {
       console.log('Formulario inválido');
     }
+  }
+
+  loadCategories():void{
+    this.categoryService.getCategoryAll().subscribe(
+      (data) => {
+        this.category = data;
+      },
+      (error) => {
+      }
+    );
   }
 }

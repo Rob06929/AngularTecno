@@ -6,12 +6,14 @@ import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PermisoService } from '../permisos/permiso.service';
 import { Permiso } from '../../interfaces/permiso.interface';
+import { PageVisitComponent } from '../page-visit/page-visit.component';
 
 @Component({
   selector: 'app-roles-permisos',
   imports: [
     CommonModule,
-    RouterLink
+    RouterLink,
+    PageVisitComponent
   ],
   templateUrl: './roles-permisos.component.html',
   styleUrl: './roles-permisos.component.css',

@@ -9,10 +9,11 @@ import { SaleDetailService } from '../service/SaleDetail.service';
 import { SaleDetail } from '../../../interfaces/sale-detail.inteface';
 import { UsuarioService } from '../../usuario/usuario.service';
 import { User } from '../../../interfaces/user.interface';
+import { PageVisitComponent } from '../../page-visit/page-visit.component';
 
 @Component({
   selector: 'app-sale-list',
-  imports: [CommonModule,RouterModule],
+  imports: [CommonModule,RouterModule, PageVisitComponent],
   templateUrl: './sale-list.component.html',
   styleUrl: './sale-list.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,0 +1,28 @@
+[
+    {
+      "idCategoria": 1,
+      "id": 1,
+      "nombre": "Electrónica"
+    },
+    {
+      "idCategoria": 2,
+      "id": 2,
+      "nombre": "Hogar"
+    },
+    {
+      "idCategoria": 3,
+      "id": 3,
+      "nombre": "Deportes"
+    },
+    {
+      "idCategoria": 4,
+      "id": 4,
+      "nombre": "Ropa"
+    },
+    {
+      "idCategoria": 5,
+      "id": 5,
+      "nombre": "Alimentos"
+    }
+  ]
+  

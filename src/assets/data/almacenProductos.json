@@ -1,0 +1,75 @@
+[
+    {
+      "id": 1,
+      "productoId": 101,
+      "producto": {
+        "idProducto": 101,
+        "id": 1,
+        "descripcion": "Producto A",
+        "nombre": "Producto A",
+        "precio": 100.5,
+        "stock": 50,
+        "idCategoria": 1,
+        "categoria": {
+          "idCategoria": 1,
+          "nombre": "Electrónica"
+        }
+      },
+      "almacenId": 1,
+      "almacen": {
+        "id": 1,
+        "nombre": "Almacén Central",
+        "locacion": "Zona A"
+      },
+      "stock": 25
+    },
+    {
+      "id": 2,
+      "productoId": 102,
+      "producto": {
+        "idProducto": 102,
+        "id": 2,
+        "descripcion": "Producto B",
+        "nombre": "Producto B",
+        "precio": 200.75,
+        "stock": 30,
+        "idCategoria": 2,
+        "categoria": {
+          "idCategoria": 2,
+          "nombre": "Hogar"
+        }
+      },
+      "almacenId": 2,
+      "almacen": {
+        "id": 2,
+        "nombre": "Almacén Secundario",
+        "locacion": "Zona B"
+      },
+      "stock": 40
+    },
+    {
+      "id": 3,
+      "productoId": 103,
+      "producto": {
+        "idProducto": 103,
+        "id": 3,
+        "descripcion": "Producto C",
+        "nombre": "Producto C",
+        "precio": 50.25,
+        "stock": 100,
+        "idCategoria": 3,
+        "categoria": {
+          "idCategoria": 3,
+          "nombre": "Deportes"
+        }
+      },
+      "almacenId": 1,
+      "almacen": {
+        "id": 1,
+        "nombre": "Almacén Central",
+        "locacion": "Zona A"
+      },
+      "stock": 15
+    }
+  ]
+  

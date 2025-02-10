@@ -9,12 +9,14 @@ import { CommonModule } from '@angular/common';
 import { UsuarioService } from '../usuario.service';
 import Swal from 'sweetalert2';
 import { Router, RouterModule } from '@angular/router';
+import { PageVisitComponent } from '../../page-visit/page-visit.component';
 
 @Component({
   selector: 'app-usuario-list',
   imports: [
     CommonModule,
     RouterModule,
+    PageVisitComponent
   ],
   templateUrl: './usuario-list.component.html',
   styleUrl: './usuario-list.component.css',

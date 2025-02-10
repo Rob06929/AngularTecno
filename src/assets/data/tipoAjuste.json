@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "nombre": "Egreso Manual"
+    },
+    {
+        "id": 2,
+        "nombre": "Ingreso Manual"
+    },
+    {
+        "id": 3,
+        "nombre": "Ventas"
+    }
+]

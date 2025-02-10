@@ -7,7 +7,6 @@ import { UsuarioService } from './usuario.service';
 @Component({
   selector: 'app-usuario',
   imports: [
-
     UsuarioListComponent
   ],
   templateUrl: './usuario.component.html',

@@ -7,11 +7,12 @@ import { Rol } from '../../../interfaces/rol.interface';
 import { UsuarioService } from '../../usuario/usuario.service';
 import { RolService } from '../../rol/rol.service';
 import { RolPermisoUsuario } from '../../../interfaces/rol-permiso-usuario.interface';
+import { PageVisitComponent } from '../../page-visit/page-visit.component';
 
 @Component({
   selector: 'app-roles-permisos-usuario-add',
   imports: [
-    CommonModule, RouterModule, FormsModule
+    CommonModule, RouterModule, FormsModule, PageVisitComponent
   ],
   templateUrl: './roles-permisos-usuario-add.component.html',
   styleUrl: './roles-permisos-usuario-add.component.css',

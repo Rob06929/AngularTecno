@@ -56,7 +56,7 @@ export class SaleService {
 
   /** 🔹 Eliminar una venta */
   deleteSale(saleId: number): Observable<any> {
-    const token = sessionStorage.getItem('token');
+    const token = sessionStorage.getItem('token'); 
     if (!token) return of({ error: 'No token available' });
 
     return this.http.delete(`${this.apiUrl}/${saleId}`, httpOptions(token))

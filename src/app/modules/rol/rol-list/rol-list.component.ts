@@ -4,12 +4,14 @@ import { RolService } from '../rol.service';
 import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { PageVisitComponent } from '../../page-visit/page-visit.component';
 
 @Component({
   selector: 'app-rol-list',
   imports: [
     CommonModule,
     RouterModule,
+    PageVisitComponent
   ],
   templateUrl: './rol-list.component.html',
   styleUrl: './rol-list.component.css',

@@ -3,13 +3,15 @@ import { User } from '../../interfaces/user.interface';
 import { UsuarioService } from '../usuario/usuario.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { PageVisitComponent } from '../page-visit/page-visit.component';
 
 @Component({
   selector: 'app-roles-permisos-usuario',
   imports: [
 
     CommonModule,
-    RouterLink
+    RouterLink,
+    PageVisitComponent
   ],
   templateUrl: './roles-permisos-usuario.component.html',
   styleUrl: './roles-permisos-usuario.component.css',

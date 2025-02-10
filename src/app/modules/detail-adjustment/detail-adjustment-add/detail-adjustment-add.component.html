@@ -1,0 +1,64 @@
+<div class="container mt-4">
+    <h2 class="text-2xl font-bold mb-4 text-center text-gradient">Crear Detalle Ajuste</h2>
+    <form [formGroup]="adjustmentForm" (ngSubmit)="createDetailAdjustment()" class="space-y-4">
+        <div class="mb-3">
+            <label for="almacenProductoId" class="block text-sm font-medium">Producto - Almacen</label>
+            <select id="almacenProductoId"
+                class="w-full px-4 py-2 mt-1 bg-gray-800 text-white rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                formControlName="almacenProductoId">
+                <option value="" disabled selected>Seleccionar Almacen Producto</option>
+                <option *ngFor="let cat of almacenProductos" [value]="cat.id">{{ cat.almacen?.nombre }} - {{ cat.producto?.nombre }}</option>
+            </select>
+            <div *ngIf="adjustmentForm.get('almacenProductoId')?.invalid && adjustmentForm.get('almacenProductoId')?.touched"
+                class="text-danger">
+                Selecciona una Almacen Producto.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="ajusteId" class="block text-sm font-medium">Ajuste</label>
+            <select id="ajusteId"
+                class="w-full px-4 py-2 mt-1 bg-gray-800 text-white rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                formControlName="ajusteId">
+                <option value="" disabled selected>Seleccionar Ajuste</option>
+                <option *ngFor="let cat of adjustments" [value]="cat.id">{{ cat.tipo }} - {{ cat.fecha }}</option>
+            </select>
+            <div *ngIf="adjustmentForm.get('ajusteId')?.invalid && adjustmentForm.get('ajusteId')?.touched"
+                class="text-danger">
+                Selecciona un ajuste.
+            </div>
+        </div>
+
+
+        <div class="mb-3">
+            <label for="precio" class="block text-sm font-medium">Precio</label>
+            <input type="number" id="precio"
+                class="w-full px-4 py-2 mt-1 bg-gray-800 text-white rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                formControlName="precio" placeholder="precio del detalle de Ajuste" />
+            <div *ngIf="adjustmentForm.get('precio')?.invalid && adjustmentForm.get('precio')?.touched"
+                class="text-danger">
+                el precio es requerido
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="cantidad" class="block text-sm font-medium">Cantidad</label>
+            <input type="number" id="cantidad"
+                class="w-full px-4 py-2 mt-1 bg-gray-800 text-white rounded-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                formControlName="cantidad" placeholder="cantidad del Ajuste" />
+            <div *ngIf="adjustmentForm.get('cantidad')?.invalid && adjustmentForm.get('cantidad')?.touched"
+                class="text-danger">
+                La cantidad es requerido
+            </div>
+        </div>
+
+        <button type="submit"
+            class="w-full px-4 py-2 bg-indigo-500 text-white font-bold rounded-lg hover:bg-indigo-600 transition"
+            [disabled]="adjustmentForm.invalid">
+            Agregar Detalle Ajuste
+        </button>
+    </form>
+</div>
+
+<br>
+<app-page-visit [page]="'detail-adjustment-add'"></app-page-visit>

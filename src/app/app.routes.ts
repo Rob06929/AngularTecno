@@ -9,8 +9,8 @@ export const routes: Routes = [
   {
     path: 'auth',
     // component: LoginComponent
-    loadChildren:()=>
-       import('./modules/auth/auth.route').then( m => m.auth_routes),
+    loadChildren: () =>
+      import('./modules/auth/auth.route').then(m => m.auth_routes),
 
   },
   {
@@ -20,10 +20,10 @@ export const routes: Routes = [
     children: [
       {
         path: 'customer',
-         loadChildren: () =>
-           import(
-             './modules/customer/customer.route').then( m => m.customer_routes)
-           ,
+        loadChildren: () =>
+          import(
+            './modules/customer/customer.route').then(m => m.customer_routes)
+        ,
         data: {
           icon: 'pi pi-users',
           // icon: PrimeIcons.ANDROID,
@@ -34,10 +34,10 @@ export const routes: Routes = [
       },
       {
         path: 'roles',
-         loadChildren: () =>
-           import(
-             './modules/rol/rol.route').then( m => m.rol_routes)
-           ,
+        loadChildren: () =>
+          import(
+            './modules/rol/rol.route').then(m => m.rol_routes)
+        ,
         data: {
           icon: 'pi pi-users',
           // icon: PrimeIcons.ANDROID,
@@ -48,10 +48,10 @@ export const routes: Routes = [
       },
       {
         path: 'roles-permisos',
-         loadChildren: () =>
-           import(
-             './modules/roles-permisos/roles-permisos.route').then( m => m.roles_permisos_routes)
-           ,
+        loadChildren: () =>
+          import(
+            './modules/roles-permisos/roles-permisos.route').then(m => m.roles_permisos_routes)
+        ,
         data: {
           icon: 'pi pi-users',
           // icon: PrimeIcons.ANDROID,
@@ -62,10 +62,10 @@ export const routes: Routes = [
       },
       {
         path: 'user',
-         loadChildren: () =>
-           import(
-             './modules/usuario/usuario.route').then( m => m.usuario_routes)
-           ,
+        loadChildren: () =>
+          import(
+            './modules/usuario/usuario.route').then(m => m.usuario_routes)
+        ,
         data: {
           icon: 'pi pi-users',
           // icon: PrimeIcons.ANDROID,
@@ -76,10 +76,10 @@ export const routes: Routes = [
       },
       {
         path: 'roles-permisos-usuario',
-         loadChildren: () =>
-           import(
-             './modules/roles-permisos-usuario/roles-permisos-usuario.route').then( m => m.roles_permisos_usuario_routes)
-           ,
+        loadChildren: () =>
+          import(
+            './modules/roles-permisos-usuario/roles-permisos-usuario.route').then(m => m.roles_permisos_usuario_routes)
+        ,
         data: {
           icon: 'pi pi-users',
           // icon: PrimeIcons.ANDROID,
@@ -90,10 +90,10 @@ export const routes: Routes = [
       },
       {
         path: 'sale',
-         loadChildren: () =>
-           import(
-             './modules/sale/sale.route').then( m => m.sale_routes)
-           ,
+        loadChildren: () =>
+          import(
+            './modules/sale/sale.route').then(m => m.sale_routes)
+        ,
         data: {
           icon: 'pi pi-cart-plus',
           // icon: PrimeIcons.ANDROID,
@@ -104,10 +104,10 @@ export const routes: Routes = [
       },
       {
         path: 'product',
-         loadChildren: () =>
-           import(
-             './modules/product/product.route').then( m => m.product_routes)
-           ,
+        loadChildren: () =>
+          import(
+            './modules/product/product.route').then(m => m.product_routes)
+        ,
         data: {
           icon: 'pi pi-cart-plus',
           // icon: PrimeIcons.ANDROID,
@@ -118,10 +118,10 @@ export const routes: Routes = [
       },
       {
         path: 'category',
-         loadChildren: () =>
-           import(
-             './modules/category/category.route').then( m => m.category_routes)
-           ,
+        loadChildren: () =>
+          import(
+            './modules/category/category.route').then(m => m.category_routes)
+        ,
         data: {
           icon: 'pi pi-cart-plus',
           // icon: PrimeIcons.ANDROID,
@@ -132,10 +132,10 @@ export const routes: Routes = [
       },
       {
         path: 'asignar-producto',
-        loadChildren: () =>
+        loadChildren: () => 
           import(
-            './modules/AsignarProducto/asignar-producto.route').then( m => m.asignar_producto_routes)
-          ,
+            './modules/AsignarProducto/asignar-producto.route').then(m => m.asignar_producto_routes)
+        ,
         data: {
           icon: 'pi pi-file-pdf',
           // icon: PrimeIcons.ANDROID,
@@ -144,19 +144,58 @@ export const routes: Routes = [
           permission: 'Producto Almacen'
         },
       },
-      // {
-      //   path: 'product',
-      //    loadChildren: () =>
-      //      import(
-      //        './modules/customer/customer.route').then( m => m.customer_routes)
-      //      ,
-      //   data: {
-      //     icon: 'pi pi-list-check',
-      //     // icon: PrimeIcons.ANDROID,
-      //     title: 'Product',
-      //     description: 'Gestion de Products',
-      //   },
-      // },
+      {
+        path: 'almacen',
+        loadChildren: () =>
+          import(
+            './modules/almacen/almacen.route').then(m => m.almacen_routes)
+        ,
+        data: {
+          icon: 'pi pi-list-check',
+          // icon: PrimeIcons.ANDROID,
+          title: 'almacen',
+          description: 'Gestion de Almacenes',
+        },
+      },
+      {
+        path: 'adjustment',
+        loadChildren: () =>
+          import(
+            './modules/adjustment/adjustment.route').then(m => m.adjustment_routes)
+        ,
+        data: {
+          icon: 'pi pi-list-check',
+          // icon: PrimeIcons.ANDROID,
+          title: 'adjustment',
+          description: 'Gestion de Ajustes',
+        },
+      },
+      {
+        path: 'detailAdjustment',
+        loadChildren: () =>
+          import(
+            './modules/detail-adjustment/detail-adjustment.route').then(m => m.detail_adjustment_routes)
+        ,
+        data: {
+          icon: 'pi pi-list-check',
+          // icon: PrimeIcons.ANDROID,
+          title: 'detail adjustment',
+          description: 'Gestion de detalles de Ajustes',
+        },
+      },
+      {
+        path: 'payment',
+        loadChildren: () =>
+          import(
+            './modules/payment/payment.route').then(m => m.payment_routes)
+        ,
+        data: {
+          icon: 'pi pi-list-check',
+          // icon: PrimeIcons.ANDROID,
+          title: 'Payment',
+          description: 'Gestion de Pagos',
+        },
+      },
       // {
       //   path: 'category',
       //    loadChildren: () =>

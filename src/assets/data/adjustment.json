@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "tipo": "Egreso Manual",
+        "fecha": "2025-02-09"
+    },
+    {
+        "id": 2,
+        "tipo": "Ingreso Manual",
+        "fecha": "2025-02-09"
+    },
+    {
+        "id": 3,
+        "tipo": "Ventas",
+        "fecha": "2025-02-09"
+    }
+]

@@ -18,19 +18,21 @@ const httpOptions = (token: string) => ({
 export class AlmacenService {
   // private apiUrl = 'http://localhost:5002/api/almacen'; // Cambia según la URL de tu API
   private apiUrl = `${environment.URL_SERVICIOS}/almacen`;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // Obtener todas las categorías
   getAlmacenes(): Observable<Almacen[]> {
     const token = sessionStorage.getItem('token'); // Obtener el token del localStorage
     console.log('Token usado:', token); // Verificar el token
-    if (token) {
-      return this.http
-        .get<Almacen[]>(this.apiUrl, httpOptions(token))
-        .pipe(catchError(this.handleError('getAlmacen', [])));
-    } else {
-      return of([]); // Si no hay token, devuelve un array vacío
-    }
+    return this.http.get<any>('../../../../assets/data/almacenes.json').
+      pipe(catchError(this.handleError('getAlmacen', [])));
+    //if (token) {
+    //  return this.http
+    //    .get<Almacen[]>(this.apiUrl, httpOptions(token))
+    //    .pipe(catchError(this.handleError('getAlmacen', [])));
+    //} else {
+    //  return of([]); // Si no hay token, devuelve un array vacío
+    //}
   }
 
   // Obtener una categoría por ID

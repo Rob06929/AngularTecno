@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, HostBinding, OnInit, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { routes } from '../../../app.routes';
 import { SidebarComponent } from "../../components/sidebar/sidebar.component";
@@ -7,6 +7,7 @@ import { Rol } from '../../../interfaces/rol.interface';
 import { Router } from '@angular/router';
 import { Permiso } from '../../../interfaces/permiso.interface';
 import { User } from '../../../interfaces/user.interface';
+import { PageVisitComponent } from '../../../modules/page-visit/page-visit.component';
 // import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 
 @Component({
@@ -14,18 +15,33 @@ import { User } from '../../../interfaces/user.interface';
   imports: [
     CommonModule,
     RouterModule,
-    SidebarComponent
-],
+    SidebarComponent,
+    PageVisitComponent,
+  ],
   templateUrl: './dashboardLayout.component.html',
   styleUrl: './dashboardLayout.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DashboardLayoutComponent  implements OnInit {
+export class DashboardLayoutComponent implements OnInit {
+
+
+  darkMode = signal<boolean>(
+    JSON.parse(window.localStorage.getItem('darkMode') ?? 'false')
+  );
+
+  @HostBinding('class.dark') get mode() {
+    return this.darkMode();
+  }
 
   public userPermissions: Permiso[] = [];
-  user:User | undefined;
+  user: User | undefined;
 
-  constructor(private router: Router) {}
+  constructor(public router: Router) { 
+    effect(() => {
+      window.localStorage.setItem('darkMode', JSON.stringify(this.darkMode()));
+    });
+   }
+
   ngOnInit(): void {
     // Recuperar permisos desde sessionStorage
     const permissions = JSON.parse(sessionStorage.getItem('roles') || '[]');
@@ -34,7 +50,7 @@ export class DashboardLayoutComponent  implements OnInit {
     this.userPermissions = permissions.flatMap((rol: Rol) => rol.permisos);
     console.log('Permisos del usuario:', this.userPermissions);
   }
-  public routes = routes[1].children?.filter( (route) => route.data );
+  public routes = routes[1].children?.filter((route) => route.data);
 
   hasPermission(permissionName: string): boolean {
     // Verificamos si el usuario tiene el permiso adecuado en cualquiera de sus roles

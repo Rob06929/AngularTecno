@@ -4,13 +4,15 @@ import { CustomerService } from '../service/customer.service';
 import { Router } from '@angular/router';
 import { Customer } from '../../../interfaces/customer.interface';
 import { CommonModule } from '@angular/common';
+import { PageVisitComponent } from '../../page-visit/page-visit.component';
 
 @Component({
   selector: 'app-customer-add',
   imports: [
     FormsModule,
     ReactiveFormsModule, // Asegúrate de incluir esto
-    CommonModule
+    CommonModule,
+    PageVisitComponent
   ],
   templateUrl: './customer-add.component.html',
   styleUrl: './customer-add.component.css',

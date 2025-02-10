@@ -17,12 +17,14 @@ import { CartVenta } from '../../../interfaces/detalle-venta.inteface';
 import { Almacen } from '../../../interfaces/almacen.interface';
 import { User } from '../../../interfaces/user.interface';
 import { Venta } from '../../../interfaces/venta.interface';
+import { PageVisitComponent } from '../../page-visit/page-visit.component';
 
 @Component({
   selector: 'app-sale-add',
   imports: [
     CommonModule,
     FormsModule,
+    PageVisitComponent
   ],
   templateUrl: './sale-add.component.html',
   styleUrl: './sale-add.component.css',
@@ -167,7 +169,7 @@ export class SaleAddComponent {
   }
 
 
-  async createSale() {
+  async createSale() { 
     if (this.selectedCustome && this.cartItems.length > 0) {
       const ventaData: Venta = {
         fecha: new Date().toISOString().substring(0, 10), // Solo la fecha (YYYY-MM-DD)

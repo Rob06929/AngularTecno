@@ -3,10 +3,13 @@ import { Product } from '../../../interfaces/poduct.interface';
 import { ProductService } from '../service/product.service';
 import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
+import { PageVisitComponent } from '../../page-visit/page-visit.component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-product-list',
   imports: [
-    CommonModule
+    CommonModule,
+    PageVisitComponent
   ],
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css',
@@ -17,7 +20,8 @@ export class ProductListComponent {
 
   constructor(
     private productService:ProductService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private router: Router
   ){}
 
   deleteProduct(product_id:number):void{
@@ -63,6 +67,6 @@ export class ProductListComponent {
   }
 
   agregarProducto(){
-
+      this.router.navigate(['/dashboard/product/add']);
   }
 }

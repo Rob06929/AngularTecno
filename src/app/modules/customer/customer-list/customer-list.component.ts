@@ -3,12 +3,14 @@ import { CustomerService } from '../service/customer.service';
 import { Customer } from '../../../interfaces/customer.interface';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { PageVisitComponent } from '../../page-visit/page-visit.component';
 
 @Component({
   selector: 'app-customer-list',
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    PageVisitComponent
   ],
   templateUrl: './customer-list.component.html',
   styleUrl: './customer-list.component.css',

@@ -1,0 +1,64 @@
+[
+    {
+        "id": 1,
+        "cantidad": 10,
+        "precio": 100.0,
+        "almacenProductoId": 1,
+        "almacenProducto": {
+            "id": 1,
+            "productoId": 1,
+            "producto": {
+                "idProducto": 1,
+                "nombre": "Producto A",
+                "precio": 50.0
+            },
+            "almacenId": 1,
+            "almacen": {
+                "id": 1,
+                "nombre": "Almacen A",
+                "locacion": "Ubicación A"
+            },
+            "stock": 20
+        },
+        "ajusteId": 1,
+        "ajuste": {
+            "id": 1,
+            "tipo": "Ingreso Manual",
+            "fecha": "2025-02-09",
+            "descripcion": "Ingreso de productos",
+            "monto": 1000.0,
+            "metodoPago": "Transferencia"
+        }
+    },
+    {
+        "id": 2,
+        "cantidad": 5,
+        "precio": 200.0,
+        "almacenProductoId": 2,
+        "almacenProducto": {
+            "id": 2,
+            "productoId": 2,
+            "producto": {
+                "idProducto": 2,
+                "nombre": "Producto B",
+                "precio": 150.0
+            },
+            "almacenId": 1,
+            "almacen": {
+                "id": 1,
+                "nombre": "Almacen A",
+                "locacion": "Ubicación A"
+            },
+            "stock": 15
+        },
+        "ajusteId": 2,
+        "ajuste": {
+            "id": 2,
+            "tipo": "Egreso Manual",
+            "fecha": "2025-02-09",
+            "descripcion": "Egreso de productos",
+            "monto": 500.0,
+            "metodoPago": "Efectivo"
+        }
+    }
+]

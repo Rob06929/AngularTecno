@@ -1,0 +1,63 @@
+[
+    {
+      "id": 1,
+      "monto": 500.0,
+      "estado": 1,
+      "fechaHora": "2025-02-09T14:30:00",
+      "imagen": "https://example.com/payment-image1.jpg",
+      "url": "https://example.com/payment/1",
+      "saleId": 101,
+      "sale": null
+    },
+    {
+      "id": 2,
+      "monto": 200.0,
+      "estado": 2,
+      "fechaHora": "2025-02-10T11:15:00",
+      "imagen": "https://example.com/payment-image2.jpg",
+      "url": "https://example.com/payment/2",
+      "saleId": 102,
+      "sale": null
+    },
+    {
+      "id": 3,
+      "monto": 1200.0,
+      "estado": 1,
+      "fechaHora": "2025-02-11T09:00:00",
+      "imagen": "https://example.com/payment-image3.jpg",
+      "url": "https://example.com/payment/3",
+      "saleId": 103,
+      "sale": null
+    },
+    {
+      "id": 4,
+      "monto": 750.0,
+      "estado": 3,
+      "fechaHora": "2025-02-11T16:45:00",
+      "imagen": "https://example.com/payment-image4.jpg",
+      "url": "https://example.com/payment/4",
+      "saleId": 104,
+      "sale": null
+    },
+    {
+      "id": 5,
+      "monto": 300.0,
+      "estado": 1,
+      "fechaHora": "2025-02-12T13:30:00",
+      "imagen": "https://example.com/payment-image5.jpg",
+      "url": "https://example.com/payment/5",
+      "saleId": 105,
+      "sale": null
+    },
+    {
+      "id": 6,
+      "monto": 900.0,
+      "estado": 2,
+      "fechaHora": "2025-02-13T08:15:00",
+      "imagen": "https://example.com/payment-image6.jpg",
+      "url": "https://example.com/payment/6",
+      "saleId": 106,
+      "sale": null
+    }
+  ]
+  

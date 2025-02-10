@@ -1,0 +1,54 @@
+{
+	"user": {
+		"userId": 1,
+		"fullname": "Carlos VM",
+		"username": "carlos",
+		"roles": [
+			{
+				"iD_Rol": 1,
+				"nombre_Rol": "Administrador",
+				"permisos": [
+					{
+						"iD_Permiso": 1,
+						"nombre_Permiso": "Rol"
+					},
+					{
+						"iD_Permiso": 2,
+						"nombre_Permiso": "Permiso"
+					},
+					{
+						"iD_Permiso": 3,
+						"nombre_Permiso": "Rol Permiso"
+					},
+					{
+						"iD_Permiso": 4,
+						"nombre_Permiso": "Usuario"
+					},
+					{
+						"iD_Permiso": 5,
+						"nombre_Permiso": "Asignacion Roles y Permisos"
+					},
+					{
+						"iD_Permiso": 6,
+						"nombre_Permiso": "Cliente"
+					}
+				]
+			},
+			{
+				"iD_Rol": 3,
+				"nombre_Rol": "Rol Aux",
+				"permisos": [
+					{
+						"iD_Permiso": 1,
+						"nombre_Permiso": "Rol"
+					},
+					{
+						"iD_Permiso": 2,
+						"nombre_Permiso": "Permiso"
+					}
+				]
+			}
+		],
+		"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzkxNTI2MDMsImlzcyI6Imh0dHA6Ly9lbHZpc2Rxcy5jb20iLCJhdWQiOiJ3ZWIifQ.6Oftm49odl2nL4icmEw0yT4Bfk0xxtJ87S_IiqvVGok"
+	}
+}

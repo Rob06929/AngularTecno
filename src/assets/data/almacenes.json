@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "nombre": "Almacen Central",
+        "locacion": "Ciudad Central, Calle 123"
+    },
+    {
+        "id": 2,
+        "nombre": "Almacen Norte",
+        "locacion": "Barrio Norte, Avenida 456"
+    },
+    {
+        "id": 3,
+        "nombre": "Almacen Sur",
+        "locacion": "Zona Sur, Calle 789"
+    },
+    {
+        "id": 4,
+        "nombre": "Almacen Este",
+        "locacion": "Sector Este, Calle 101"
+    },
+    {
+        "id": 5,
+        "nombre": "Almacen Oeste",
+        "locacion": "Área Oeste, Avenida 202"
+    }
+]
